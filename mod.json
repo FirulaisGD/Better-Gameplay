@@ -1,0 +1,168 @@
+{
+	"geode": "4.3.1",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "firulais.better_gameplay",
+	"name": "Better Gameplay",
+	"version": "v1.0.0",
+	"developer": "Firulais",
+	"description": "Better inputs and performance.",
+	"dependencies": {
+		"geode.custom-keybinds": {
+			"importance": "required",
+			"version": ">=v1.10.0",
+			"platforms": ["win"]
+		}
+	},
+	"incompatibilities": {
+		"zmx.cbf-lite": {
+			"importance": "breaking",
+			"version": ">=1.0.0"
+		}
+	},
+	"tags": [
+		"performance",
+		"universal",
+		"offline",
+		"gameplay",
+		"enhancement"
+	],
+	"settings": {
+		"functionality-category": {
+			"name": "Functionality",
+			"type": "title"
+		},
+		"soft-toggle": {
+			"name": "Disable CBF",
+			"description": "Disable CBF without needing to restart GD. This option does not disable physics bypass if you have it enabled!",
+			"type": "bool",
+			"default": false
+		},
+		"safe-mode": {
+			"name": "Safe Mode",
+			"description": "Disable progress & stats on rated levels.",
+			"type": "bool",
+			"default": false
+		},
+		"click-on-steps": {
+			"name": "Click on Steps",
+			"description": "Only register inputs with 240TPS precision. Should have identical physics to vanilla.",
+			"type": "bool",
+			"default": false
+		},
+		"right-click": {
+			"name": "Right Click P2",
+			"description": "Use right click for player 2 jump.",
+			"type": "bool",
+			"default": false,
+			"platforms": ["win"]
+		},
+		"performance-category": {
+			"name": "Performance",
+			"type": "title"
+		},
+		"mouse-fix": {
+			"name": "Reduce Mouse Lag",
+			"description": "Reduce lag when using high polling rate mice.\nExperimental, may break things.",
+			"type": "bool",
+			"default": false,
+			"platforms": ["win"]
+		},
+		"late-cutoff": {
+			"name": "Late Input Cutoff",
+			"description": "Check for inputs near the end of the frame instead of the start.\n\nSlightly reduces input lag, but also slightly hurts precision. May help if you are experiencing dropped or delayed inputs.",
+			"type": "bool",
+			"default": false,
+			"platforms": ["win"]
+		},
+		"thread-priority": {
+			"name": "Thread Priority",
+			"description": "Whether to automatically set CBF's thread priority to the highest available.",
+			"type": "bool",
+			"default": true,
+			"requires-restart": true,
+			"platforms": ["win"]
+		},
+		"pb-category": {
+			"name": "Physics Bypass",
+			"type": "title",
+			"platforms": ["win"]
+		},
+		"physics-bypass": {
+			"name": "Enable Physics Bypass",
+			"description": "Reduces stuttering on some FPS values. Active even if \"Disable CBF\" is checked.\n\nTHIS WILL ALTER PHYSICS AND MAY BREAK SOME LEVELS! DON'T USE THIS IF YOUR LIST/LEADERBOARD BANS PHYSICS BYPASS!",
+			"type": "bool",
+			"default": false,
+			"platforms": ["win"]
+		},
+		"bypass-mode": {
+			"name": "Physics Bypass Mode",
+			"description": "2.2 mode means as few collision checks per frame as possible (with a minimum of 240 checks per second).\n\n2.1 mode means 4 collision checks per frame at 60fps or above",
+			"type": "string",
+			"one-of": ["2.2", "2.1"],
+			"default": "2.2",
+			"platforms": ["win"]
+		},
+		"linux-category": {
+			"name": "Linux",
+			"type": "title",
+			"platforms": ["win"]
+		},
+		"wine-workaround": {
+			"name": "Wine Workaround",
+			"description": "Wine doesn't let you get keyboard input between frames, so this is a workaround. However, it may not work properly on some PCs.\n\nOnly disable if experiencing issues (and don't play with keyboard if you disable it).",
+			"type": "bool",
+			"default": true,
+			"requires-restart": true,
+			"enable-if": "saved:you-must-be-on-linux-to-change-this",
+			"platforms": ["win"]
+		},
+		"gameplay-category": {
+			"name": "Gameplay",
+			"type": "title"
+		},
+		"enable-mod": {
+			"name": "Enabled",
+			"type": "bool",
+			"default": true,
+			"description": "Enable the mod"
+		},
+		"override-visual-fps": {
+			"name": "Override Visual FPS",
+			"type": "bool",
+			"default": false,
+			"description": "Override the target visual FPS, instead of targetting monitor refresh rate"
+		},
+		"visual-fps": {
+			"name": "Visual FPS",
+			"type": "int",
+			"default": 60,
+			"min": 1,
+			"enable-if": "override-visual-fps"
+		},
+		"performance": {
+			"name": "Performance",
+			"type": "title"
+		},
+		"no-particles": {
+			"name": "No Particles",
+			"description": "Disables particles effects to improve performance.",
+			"type": "bool",
+			"default": false
+		},
+		"no-glow": {
+			"name": "No Glow",
+			"description": "Disables glow effects to improve performance.",
+			"type": "bool",
+			"default": false
+		}
+	},
+	"links": {
+		"source": "https://github.com/firulais/better_gameplay"
+	}
+}
+
